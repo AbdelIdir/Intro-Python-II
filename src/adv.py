@@ -53,6 +53,8 @@ while playerKey != exitButton:
     try:
         if playerKey == "n" or playerKey == "e" or playerKey == "s" or playerKey == "w":
             print(f"PLayer1 has moved in this direction: { playerKey}")
+        elif playerKey == exitButton:
+            print("Player has exited the game")
         else:
             print("Please enter a valid direction")
     except ValueError:
