@@ -1,4 +1,5 @@
 from room import Room
+from player import Player
 
 # Declare all the rooms
 
@@ -38,6 +39,22 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
+
+player1 = Player("Luke", "outside")
+
+print(player1)
+
+
+playerKey = ""
+exitButton = "q"
+
+while playerKey != exitButton:
+    playerKey = input("Please enter a direction (n,s,e,w): ")
+    try:
+        if playerKey == "n" or "s" or "e" or "w":
+            print(f"PLayer1 has moved in this direction: { playerKey}")
+    except ValueError:
+        print("Pick a direction")
 
 # Write a loop that:
 #
