@@ -50,15 +50,48 @@ exitButton = "q"
 
 while playerKey != exitButton:
     playerKey = input("Please enter a direction (n,s,e,w): ")
-    if player1.current_room.n_to and playerKey == "n":
-        player1.current_room = player1.current_room.n_to
-        print(f"You are in {player1.current_room}")
-    if player1.current_room.s_to:
-        if playerKey == "s":
+
+    if playerKey == "n":
+        if player1.current_room.n_to:
+            player1.current_room = player1.current_room.n_to
+            print(f"You are in {player1.current_room}")
+        else:
+            print("You cannot go there")
+    if playerKey == "s":
+        if player1.current_room.s_to:
             player1.current_room = player1.current_room.s_to
             print(f"You are in {player1.current_room}")
+        else:
+            print("You cannot go there")
+    if playerKey == "e":
+        if player1.current_room.e_to:
+            player1.current_room = player1.current_room.e_to
+            print(f"You are in {player1.current_room}")
+        else:
+            print("You cannot go there")
+    if playerKey == "w":
+        if player1.current_room.w_to:
+            player1.current_room = player1.current_room.w_to
+            print(f"You are in {player1.current_room}")
+        else:
+            print("You cannot go there")
 
-        # else: print("type in a directiin")
+    else:
+        print(
+            "Type in a valid direction key: n,s,e,w")
+    # if player1.current_room.n_to and playerKey == "n":
+    #     player1.current_room = player1.current_room.n_to
+    #     print(f"You are in {player1.current_room}")
+    # else:
+    #     print("you cannot go there")
+
+    # elif player1.current_room.s_to and playerKey == "s":
+    #      player1.current_room = player1.current_room.s_to
+    #      print(f"You are in {player1.current_room}")
+    #      else:
+    #     print("You cannot go there")
+
+       # else: print("type in a directiin")
 # Write a loop that:
 #
 # * Prints the current room name

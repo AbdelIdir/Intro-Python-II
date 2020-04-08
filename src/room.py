@@ -6,10 +6,10 @@ class Room:
     def __init__(self, name, description):
         self.name = name
         self.description = description
-        self.n_to = None
-        self.s_to = None
-        self.e_to = None
-        self.w_to = None
+        self.n_to = ""
+        self.s_to = ""
+        self.e_to = ""
+        self.w_to = ""
 
     def __str__(self):
         return f"Room name :{self.name}, Room description: {self.description} "
