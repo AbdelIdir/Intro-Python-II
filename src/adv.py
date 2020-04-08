@@ -40,7 +40,7 @@ room['treasure'].s_to = room['narrow']
 
 # Make a new player object that is currently in the 'outside' room.
 
-player1 = Player("Luke", "outside")
+player1 = Player("Luke", room["outside"])
 
 print(player1)
 
@@ -51,12 +51,9 @@ exitButton = "q"
 while playerKey != exitButton:
     playerKey = input("Please enter a direction (n,s,e,w): ")
     try:
-        if playerKey == "n" or playerKey == "e" or playerKey == "s" or playerKey == "w":
-            print(f"PLayer1 has moved in this direction: { playerKey}")
-        elif playerKey == exitButton:
-            print("Player has exited the game")
-        else:
-            print("Please enter a valid direction")
+        if player1.current_room.n_to and playerKey == "n":
+
+            print(f"You are in {player1.current_room}")
     except ValueError:
         print("Pick a direction")
 
