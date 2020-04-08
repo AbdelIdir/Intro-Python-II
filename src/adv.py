@@ -51,8 +51,10 @@ exitButton = "q"
 while playerKey != exitButton:
     playerKey = input("Please enter a direction (n,s,e,w): ")
     try:
-        if playerKey == "n" or "s" or "e" or "w":
+        if playerKey == "n" or playerKey == "e" or playerKey == "s" or playerKey == "w":
             print(f"PLayer1 has moved in this direction: { playerKey}")
+        else:
+            print("Please enter a valid direction")
     except ValueError:
         print("Pick a direction")
 
