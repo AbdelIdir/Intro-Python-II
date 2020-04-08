@@ -65,29 +65,27 @@ while playerKey != exitButton:
     if playerKey == "n":
         if player1.current_room.n_to:
             player1.current_room = player1.current_room.n_to
-            print(f"You are in {player1.current_room}")
+            print(f"{player1.name} is in {player1.current_room}")
         else:
             print("You cannot go there")
     if playerKey == "s":
         if player1.current_room.s_to:
             player1.current_room = player1.current_room.s_to
-            print(f"You are in {player1.current_room}")
+            print(f"{player1.name} is in {player1.current_room}")
         else:
             print("You cannot go there")
     if playerKey == "e":
         if player1.current_room.e_to:
             player1.current_room = player1.current_room.e_to
-            print(f"You are in {player1.current_room}")
+            print(f"{player1.name} is in {player1.current_room}")
         else:
             print("You cannot go there")
     if playerKey == "w":
         if player1.current_room.w_to:
             player1.current_room = player1.current_room.w_to
-            print(f"You are in {player1.current_room}")
+            print(f"{player1.name} is in {player1.current_room}")
         else:
             print("You cannot go there")
-
     else:
         print(
             "Type in a valid direction key: n,s,e,w")
-
