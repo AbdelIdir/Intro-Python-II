@@ -44,6 +44,17 @@ player1 = Player("Luke", room["outside"])
 
 # print(player1)
 
+# Write a loop that:
+#
+# * Prints the current room name
+# * Prints the current description (the textwrap module might be useful here).
+# * Waits for user input and decides what to do.
+#
+# If the user enters a cardinal direction, attempt to move to the room there.
+# Print an error message if the movement isn't allowed.
+#
+# If the user enters "q", quit the game.
+
 
 playerKey = ""
 exitButton = "q"
@@ -79,26 +90,4 @@ while playerKey != exitButton:
     else:
         print(
             "Type in a valid direction key: n,s,e,w")
-    # if player1.current_room.n_to and playerKey == "n":
-    #     player1.current_room = player1.current_room.n_to
-    #     print(f"You are in {player1.current_room}")
-    # else:
-    #     print("you cannot go there")
 
-    # elif player1.current_room.s_to and playerKey == "s":
-    #      player1.current_room = player1.current_room.s_to
-    #      print(f"You are in {player1.current_room}")
-    #      else:
-    #     print("You cannot go there")
-
-       # else: print("type in a directiin")
-# Write a loop that:
-#
-# * Prints the current room name
-# * Prints the current description (the textwrap module might be useful here).
-# * Waits for user input and decides what to do.
-#
-# If the user enters a cardinal direction, attempt to move to the room there.
-# Print an error message if the movement isn't allowed.
-#
-# If the user enters "q", quit the game.
