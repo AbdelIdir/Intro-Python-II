@@ -42,7 +42,7 @@ room['treasure'].s_to = room['narrow']
 
 player1 = Player("Luke", room["outside"])
 
-print(player1)
+# print(player1)
 
 
 playerKey = ""
@@ -50,13 +50,15 @@ exitButton = "q"
 
 while playerKey != exitButton:
     playerKey = input("Please enter a direction (n,s,e,w): ")
-    try:
-        if player1.current_room.n_to and playerKey == "n":
-
+    if player1.current_room.n_to and playerKey == "n":
+        player1.current_room = player1.current_room.n_to
+        print(f"You are in {player1.current_room}")
+    if player1.current_room.s_to:
+        if playerKey == "s":
+            player1.current_room = player1.current_room.s_to
             print(f"You are in {player1.current_room}")
-    except ValueError:
-        print("Pick a direction")
 
+        # else: print("type in a directiin")
 # Write a loop that:
 #
 # * Prints the current room name
