@@ -61,7 +61,6 @@ exitButton = "q"
 
 while playerKey != exitButton:
     playerKey = input("Please enter a direction (n,s,e,w): ")
-
     if playerKey == "n":
         if player1.current_room.n_to:
             player1.current_room = player1.current_room.n_to
