@@ -3,10 +3,10 @@
 
 
 class Player:
-    def __init__(self, name, current_room,backpack):
+    def __init__(self, name, current_room, backpack):
         self.name = name
         self.current_room = current_room
-        self.backpack = backpack
+        self.backpack = [backpack]
 
-    # def __str__(self):
-    #     return f"Player's name:  {self.name } Current location :  {self.current_room}"
+    def __str__(self):
+        return f"Player's backpack contains:  {self.backpack}"

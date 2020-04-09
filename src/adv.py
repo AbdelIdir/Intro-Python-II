@@ -23,12 +23,10 @@ earlier adventurers. The only exit is to the south."""),
 }
 
 backP = {
-    'Knife':  Item("Utility Knife",
-                   "A do it all knife that can be used for many purposes. "),
+    'Knife': Item("Utility Knife",
+                  "A do it all knife that can be used for many purposes. "),
 
-    'Helmet':    Item("Dark Helmet", "This helmet is used for the Dark Knight Armor. ")
-
-
+    'Helmet': Item("Dark Helmet", "This helmet is used for the Dark Knight Armor. ")
 }
 
 
@@ -53,12 +51,14 @@ room["outside"].items.append("Potion")
 # Main
 #
 
-
 # Make a new player object that is currently in the 'outside' room.
 
 player1 = Player("Luke", room["outside"], backP["Helmet"])
+player1.backpack.append(backP["Knife"])
 
-# print(player1)
+# for item in player1.backpack:
+#     print(item)
+# print(player1.backpack[0])
 
 # Write a loop that:
 #
@@ -71,10 +71,8 @@ player1 = Player("Luke", room["outside"], backP["Helmet"])
 #
 # If the user enters "q", quit the game.
 
-
 playerKey = ""
 exitButton = "q"
-
 
 # for item in room:
 # if item == Inputitem:
@@ -88,7 +86,10 @@ while playerKey != exitButton:
         if player1.current_room.n_to:
             player1.current_room = player1.current_room.n_to
             print(
-                f"{player1.name} is in {player1.current_room}. These items are available in this room:{player1.backpack}")
+                f"{player1.name} is in {player1.current_room}. These items are available in this room:some stuff \n")
+            print("You have these items in your backpack: \n")
+            for item in player1.backpack:
+                print(f"{item}")
         else:
             print("You cannot go there")
     if playerKey == "s":
