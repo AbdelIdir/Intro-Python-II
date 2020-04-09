@@ -27,7 +27,7 @@ backP = {
     'Knife': Item("Utility Knife",
                   "A do it all knife that can be used for many purposes. "),
 
-    'Helmet': Item("Dark Helmet", "This helmet is used for the Dark Knight Armor. ")
+    'Stick': Item("Stick", "Dry stick, can be used to start a fire. ")
 }
 
 
@@ -56,8 +56,8 @@ room['treasure'].items.append("Gold")
 
 # Make a new player object that is currently in the 'outside' room.
 
-player1 = Player("Luke", room["outside"], backP["Helmet"])
-player1.backpack.append(backP["Knife"])
+player1 = Player("Luke", room["outside"])
+# player1.backpack.append(backP["Knife"])
 
 # for item in player1.backpack:
 #     print(item)
@@ -89,24 +89,39 @@ while playerKey != exitButton:
     if playerKey == "n":
         if player1.current_room.n_to:
             player1.current_room = player1.current_room.n_to
-
             print(
                 f"{player1.name} is in {player1.current_room.name}.\t {player1.current_room.description}   \n This room contains these items:\n  ")
             print(f"{player1.current_room.items}")
-            player_action = input("What would you like to do?: ")
+            if len(player1.backpack) > 1:
+                for item in player1.backpack:
+                    print("You have these items in your backpack 👜 : \n")
+                    print(f"➡{item}")
+            else:
+                print("%sYour backpack is empty ! ❌👜%s" % (fg(1), attr(0)))
+            player_action = input(
+                "What would you like to do? (Take/Drop): ")
+            take_or_drop = player_action.split(" ")
             for index, item in enumerate(player1.current_room.items, start=0):
-                if item == player_action:
+                if take_or_drop[0] == "take"and take_or_drop[1] == item:
                     player1.current_room.items.pop(index)
                     player1.backpack.append(item)
-            print(player1.current_room.items)
+                    print(player1.current_room.items)
+            for index, item in enumerate(player1.backpack, start=0):
+                if take_or_drop[0] == "drop"and take_or_drop[1] == item:
+                    player1.backpack.pop(index)
+                    player1.current_room.items.append(item)
+                    # print(player1.current_room.items)
+
+                    # player1.current_room.items.append(item)
             print("You have these items in your backpack 👜 : \n")
             for item in player1.backpack:
                 print(f"➡{item}")
+            print(f"current room {player1.current_room.items}")
         else:
             print("%sYou cannot go there ❌🚪%s" % (fg(1), attr(0)))
     elif playerKey == "s":
         if player1.current_room.s_to:
-            player1.current_room = player1.current_room.n_to
+            player1.current_room = player1.current_room.s_to
             print(
                 f"{player1.name} is in {player1.current_room.name}.\t {player1.current_room.description}   \n This room contains these items:\n  ")
             print(f"{player1.current_room.items}")
@@ -117,7 +132,7 @@ while playerKey != exitButton:
             print("%sYou cannot go there ❌🚪%s" % (fg(1), attr(0)))
     elif playerKey == "e":
         if player1.current_room.e_to:
-            player1.current_room = player1.current_room.n_to
+            player1.current_room = player1.current_room.e_to
             print(
                 f"{player1.name} is in {player1.current_room.name}.\t {player1.current_room.description}   \n This room contains these items:\n  ")
             print(f"{player1.current_room.items}")
@@ -128,7 +143,7 @@ while playerKey != exitButton:
             print("%sYou cannot go there ❌🚪%s" % (fg(1), attr(0)))
     elif playerKey == "w":
         if player1.current_room.w_to:
-            player1.current_room = player1.current_room.n_to
+            player1.current_room = player1.current_room.w_to
             print(
                 f"{player1.name} is in {player1.current_room.name}.\t {player1.current_room.description}   \n This room contains these items:\n  ")
             print(f"{player1.current_room.items}")
@@ -140,3 +155,10 @@ while playerKey != exitButton:
     else:
         print(
             "%sType in a valid direction key: n,s,e,w%s" % (fg(1), attr(0)))
+
+
+the = input("hi ")
+
+tha = the.split(" ")
+
+print(tha[1])
