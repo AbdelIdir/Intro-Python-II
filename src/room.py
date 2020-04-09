@@ -1,5 +1,6 @@
 # Implement a class to hold room information. This should have name and
 # description attributes.
+from item import Item
 
 
 class Room:
@@ -10,6 +11,7 @@ class Room:
         self.s_to = None
         self.e_to = None
         self.w_to = None
+        self.items = ["Dagger,Potion"]
 
     def __str__(self):
         return f"Room name :{self.name}, Room description: {self.description} "
