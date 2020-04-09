@@ -93,25 +93,25 @@ while playerKey != exitButton:
             for item in player1.backpack:
                 print(f"{item}")
         else:
-            print("You cannot go there")
+            print("%sYou cannot go there%s" % (fg(1), attr(0)))
     elif playerKey == "s":
         if player1.current_room.s_to:
             player1.current_room = player1.current_room.s_to
             print(f"{player1.name} is in {player1.current_room} These items are available in this room:{player1.current_room.items}")
         else:
-            print("You cannot go there")
+            print("%sYou cannot go there%s" % (fg(1), attr(0)))
     elif playerKey == "e":
         if player1.current_room.e_to:
             player1.current_room = player1.current_room.e_to
             print(f"{player1.name} is in {player1.current_room} These items are available in this room:{player1.current_room.items}")
         else:
-            print("You cannot go there")
+            print("%sYou cannot go there%s" % (fg(1), attr(0)))
     elif playerKey == "w":
         if player1.current_room.w_to:
             player1.current_room = player1.current_room.w_to
             print(f"{player1.name} is in {player1.current_room} These items are available in this room:{player1.current_room.items}")
         else:
-            print("You cannot go there")
+            print("%sYou cannot go there%s" % (fg(1), attr(0)))
     else:
         print(
-            "Type in a valid direction key: n,s,e,w")
+            "%sType in a valid direction key: n,s,e,w%s" % (fg(1), attr(0)))
