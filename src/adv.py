@@ -1,6 +1,8 @@
 from room import Room
 from player import Player
 from item import Item
+
+from colored import fg, bg, attr
 # Declare all the rooms
 
 room = {
@@ -86,25 +88,25 @@ while playerKey != exitButton:
         if player1.current_room.n_to:
             player1.current_room = player1.current_room.n_to
             print(
-                f"{player1.name} is in {player1.current_room}. These items are available in this room:some stuff \n")
+                f"{player1.name} is in {player1.current_room}.  \n")
             print("You have these items in your backpack: \n")
             for item in player1.backpack:
                 print(f"{item}")
         else:
             print("You cannot go there")
-    if playerKey == "s":
+    elif playerKey == "s":
         if player1.current_room.s_to:
             player1.current_room = player1.current_room.s_to
             print(f"{player1.name} is in {player1.current_room} These items are available in this room:{player1.current_room.items}")
         else:
             print("You cannot go there")
-    if playerKey == "e":
+    elif playerKey == "e":
         if player1.current_room.e_to:
             player1.current_room = player1.current_room.e_to
             print(f"{player1.name} is in {player1.current_room} These items are available in this room:{player1.current_room.items}")
         else:
             print("You cannot go there")
-    if playerKey == "w":
+    elif playerKey == "w":
         if player1.current_room.w_to:
             player1.current_room = player1.current_room.w_to
             print(f"{player1.name} is in {player1.current_room} These items are available in this room:{player1.current_room.items}")

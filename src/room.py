@@ -11,7 +11,7 @@ class Room:
         self.s_to = None
         self.e_to = None
         self.w_to = None
-        self.items = []
+        self.items = ["cool stuff"]
 
     def __str__(self):
-        return f"Room name :{self.name}, Room description: {self.description} "
+        return f"Room name :{self.name}, Room description: {self.description},Items available in this room: {self.items} "
