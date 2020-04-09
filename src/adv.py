@@ -90,11 +90,11 @@ while playerKey != exitButton:
             player1.current_room = player1.current_room.n_to
             print(
                 f"{player1.name} is in {player1.current_room}.  \n")
-            print("You have these items in your backpack: \n")
+            print("You have these items in your backpack 👜 : \n")
             for item in player1.backpack:
                 print(f"{item}")
         else:
-            print("%sYou cannot go there%s" % (fg(1), attr(0)))
+            print("%sYou cannot go there ❌🚪%s" % (fg(1), attr(0)))
     elif playerKey == "s":
         if player1.current_room.s_to:
             player1.current_room = player1.current_room.s_to
