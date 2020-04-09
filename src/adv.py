@@ -24,9 +24,9 @@ earlier adventurers. The only exit is to the south."""),
 
 backP = {
     'Knife':  Item("Utility Knife",
-                   "A do it all knife that can be used for many purposes"),
+                   "A do it all knife that can be used for many purposes. "),
 
-    'Helmet':    Item("Dark Helmet", "This helmet is used for the Dark Knight Armor ")
+    'Helmet':    Item("Dark Helmet", "This helmet is used for the Dark Knight Armor. ")
 
 
 }
@@ -56,7 +56,7 @@ room["outside"].items.append("Potion")
 
 # Make a new player object that is currently in the 'outside' room.
 
-player1 = Player("Luke", room["outside"], ["helmet", "bag"])
+player1 = Player("Luke", room["outside"], backP["Helmet"])
 
 # print(player1)
 
