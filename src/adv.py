@@ -93,12 +93,11 @@ while playerKey != exitButton:
                 f"{player1.name} is in {player1.current_room.name}.\t {player1.current_room.description}   \n This room contains these items:\n  ")
             for item in player1.current_room.items:
                 print(f"➡{item} \n")
-            if len(player1.backpack) > 1:
-                for item in player1.backpack:
-                    print(f"%s ➡{item} %s" % (fg(1), attr(0)))
-                    print(f"➡{item}")
-            else:
-                print("%sYour backpack is empty ! ❌👜 \n%s" % (fg(1), attr(0)))
+
+            print("You have these items in your backpack 👜 : \n")
+            for item in player1.backpack:
+                print(f"➡{item}")
+
             player_action = input(
                 "What would you like to do with the items ? (Take/Drop): ")
             take_or_drop = player_action.split(" ")
@@ -113,9 +112,8 @@ while playerKey != exitButton:
                     player1.current_room.items.append(item)
 
             print("You have these items in your backpack 👜 : \n")
-
             for item in player1.backpack:
-                print(f"%s ➡{item} \n %s" % (fg(5), attr(0)))
+                print(f"➡{item}\n")
             print("This 🚪room  now contain these items: \n")
             for item in player1.current_room.items:
                 print(f"➡{item} \n")
@@ -125,22 +123,22 @@ while playerKey != exitButton:
         if player1.current_room.s_to:
             player1.current_room = player1.current_room.s_to
             print(
-                f"{player1.name} is in {player1.current_room.name}.\t {player1.current_room.description}   \n This 🚪 room contains these items:\n  ")
-            print(f"{player1.current_room.items}")
-            if len(player1.backpack) > 1:
-                for item in player1.backpack:
-                    print("You have these items in your backpack 👜 : \n")
-                    print(f"%s ➡{item} %s" % (fg(1), attr(0)))
-            else:
-                print("%sYour backpack is empty ! ❌👜%s" % (fg(1), attr(0)))
+                f"{player1.name} is in {player1.current_room.name}.\t {player1.current_room.description}   \n This room contains these items:\n  ")
+            for item in player1.current_room.items:
+                print(f"➡{item} \n")
+
+            print("You have these items in your backpack 👜 : \n")
+            for item in player1.backpack:
+                print(f"➡{item}")
+
             player_action = input(
-                "What would you like to do? (Take/Drop): ")
+                "What would you like to do with the items ? (Take/Drop): ")
             take_or_drop = player_action.split(" ")
             for index, item in enumerate(player1.current_room.items, start=0):
                 if take_or_drop[0] == "take"and take_or_drop[1] == item:
                     player1.current_room.items.pop(index)
                     player1.backpack.append(item)
-                    print(player1.current_room.items)
+                    print(f"You picked up {item} into your backpack !")
             for index, item in enumerate(player1.backpack, start=0):
                 if take_or_drop[0] == "drop"and take_or_drop[1] == item:
                     player1.backpack.pop(index)
@@ -148,8 +146,10 @@ while playerKey != exitButton:
 
             print("You have these items in your backpack 👜 : \n")
             for item in player1.backpack:
-                print(f"➡{item}")
-            print(f"current room {player1.current_room.items}")
+                print(f"➡{item}\n")
+            print("This 🚪room  now contain these items: \n")
+            for item in player1.current_room.items:
+                print(f"➡{item} \n")
         else:
             print("%sYou cannot go there ❌🚪%s" % (fg(1), attr(0)))
     elif playerKey == "e":
@@ -157,21 +157,21 @@ while playerKey != exitButton:
             player1.current_room = player1.current_room.e_to
             print(
                 f"{player1.name} is in {player1.current_room.name}.\t {player1.current_room.description}   \n This room contains these items:\n  ")
-            print(f"{player1.current_room.items}")
-            if len(player1.backpack) > 1:
-                for item in player1.backpack:
-                    print("You have these items in your backpack 👜 : \n")
-                    print(f"➡{item}")
-            else:
-                print("%sYour backpack is empty ! ❌👜%s" % (fg(1), attr(0)))
+            for item in player1.current_room.items:
+                print(f"➡{item} \n")
+
+            print("You have these items in your backpack 👜 : \n")
+            for item in player1.backpack:
+                print(f"➡{item}")
+
             player_action = input(
-                "What would you like to do? (Take/Drop): ")
+                "What would you like to do with the items ? (Take/Drop): ")
             take_or_drop = player_action.split(" ")
             for index, item in enumerate(player1.current_room.items, start=0):
                 if take_or_drop[0] == "take"and take_or_drop[1] == item:
                     player1.current_room.items.pop(index)
                     player1.backpack.append(item)
-                    print(player1.current_room.items)
+                    print(f"You picked up {item} into your backpack !")
             for index, item in enumerate(player1.backpack, start=0):
                 if take_or_drop[0] == "drop"and take_or_drop[1] == item:
                     player1.backpack.pop(index)
@@ -179,8 +179,10 @@ while playerKey != exitButton:
 
             print("You have these items in your backpack 👜 : \n")
             for item in player1.backpack:
-                print(f"➡{item}")
-            print(f"current room {player1.current_room.items}")
+                print(f"➡{item}\n")
+            print("This 🚪room  now contain these items: \n")
+            for item in player1.current_room.items:
+                print(f"➡{item} \n")
         else:
             print("%sYou cannot go there ❌🚪%s" % (fg(1), attr(0)))
     elif playerKey == "w":
@@ -188,21 +190,21 @@ while playerKey != exitButton:
             player1.current_room = player1.current_room.w_to
             print(
                 f"{player1.name} is in {player1.current_room.name}.\t {player1.current_room.description}   \n This room contains these items:\n  ")
-            print(f"{player1.current_room.items}")
-            if len(player1.backpack) > 1:
-                for item in player1.backpack:
-                    print("You have these items in your backpack 👜 : \n")
-                    print(f"➡{item}")
-            else:
-                print("%sYour backpack is empty ! ❌👜%s" % (fg(1), attr(0)))
+            for item in player1.current_room.items:
+                print(f"➡{item} \n")
+
+            print("You have these items in your backpack 👜 : \n")
+            for item in player1.backpack:
+                print(f"➡{item}")
+
             player_action = input(
-                "What would you like to do? (Take/Drop): ")
+                "What would you like to do with the items ? (Take/Drop): ")
             take_or_drop = player_action.split(" ")
             for index, item in enumerate(player1.current_room.items, start=0):
                 if take_or_drop[0] == "take"and take_or_drop[1] == item:
                     player1.current_room.items.pop(index)
                     player1.backpack.append(item)
-                    print(player1.current_room.items)
+                    print(f"You picked up {item} into your backpack !")
             for index, item in enumerate(player1.backpack, start=0):
                 if take_or_drop[0] == "drop"and take_or_drop[1] == item:
                     player1.backpack.pop(index)
@@ -210,10 +212,13 @@ while playerKey != exitButton:
 
             print("You have these items in your backpack 👜 : \n")
             for item in player1.backpack:
-                print(f"➡{item}")
-            print(f"current room {player1.current_room.items}")
+                print(f"➡{item}\n")
+            print("This 🚪room  now contain these items: \n")
+            for item in player1.current_room.items:
+                print(f"➡{item} \n")
         else:
             print("%sYou cannot go there ❌🚪%s" % (fg(1), attr(0)))
+
     else:
         print(
             "%sType in a valid direction key: n,s,e,w%s" % (fg(1), attr(0)))
