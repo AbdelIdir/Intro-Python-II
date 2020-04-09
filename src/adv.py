@@ -1,6 +1,6 @@
 from room import Room
 from player import Player
-
+from item import Item
 # Declare all the rooms
 
 room = {
@@ -22,6 +22,15 @@ chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
 
+backP = {
+    'Knife':  Item("Utility Knife",
+                   "A do it all knife that can be used for many purposes"),
+
+    'Helmet':    Item("Dark Helmet", "This helmet is used for the Dark Knight Armor ")
+
+
+}
+
 
 # Link rooms together
 
@@ -35,16 +44,19 @@ room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
 
-room["foyer"].items.append("hi")
-room["outside"].items.append("yo")
+room["foyer"].items.append("Knife")
+room["foyer"].items.append("Dagger")
+room["foyer"].items.append("Helmet")
+room["outside"].items.append("Potion")
 
 #
 # Main
 #
 
+
 # Make a new player object that is currently in the 'outside' room.
 
-player1 = Player("Luke", room["outside"])
+player1 = Player("Luke", room["outside"], ["helmet", "bag"])
 
 # print(player1)
 
@@ -63,12 +75,20 @@ player1 = Player("Luke", room["outside"])
 playerKey = ""
 exitButton = "q"
 
+
+# for item in room:
+# if item == Inputitem:
+# player1.backpack.append
+#
+
+
 while playerKey != exitButton:
     playerKey = input("Please enter a direction (n,s,e,w): ")
     if playerKey == "n":
         if player1.current_room.n_to:
             player1.current_room = player1.current_room.n_to
-            print(f"{player1.name} is in {player1.current_room}. These items are available in this room:{player1.current_room.items}")
+            print(
+                f"{player1.name} is in {player1.current_room}. These items are available in this room:{player1.backpack}")
         else:
             print("You cannot go there")
     if playerKey == "s":
