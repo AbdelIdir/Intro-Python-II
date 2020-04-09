@@ -34,6 +34,10 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
+
+room["foyer"].items.append("hi")
+room["outside"].items.append("yo")
+
 #
 # Main
 #
@@ -64,25 +68,25 @@ while playerKey != exitButton:
     if playerKey == "n":
         if player1.current_room.n_to:
             player1.current_room = player1.current_room.n_to
-            print(f"{player1.name} is in {player1.current_room}")
+            print(f"{player1.name} is in {player1.current_room}. These items are available in this room:{player1.current_room.items}")
         else:
             print("You cannot go there")
     if playerKey == "s":
         if player1.current_room.s_to:
             player1.current_room = player1.current_room.s_to
-            print(f"{player1.name} is in {player1.current_room}")
+            print(f"{player1.name} is in {player1.current_room} These items are available in this room:{player1.current_room.items}")
         else:
             print("You cannot go there")
     if playerKey == "e":
         if player1.current_room.e_to:
             player1.current_room = player1.current_room.e_to
-            print(f"{player1.name} is in {player1.current_room}")
+            print(f"{player1.name} is in {player1.current_room} These items are available in this room:{player1.current_room.items}")
         else:
             print("You cannot go there")
     if playerKey == "w":
         if player1.current_room.w_to:
             player1.current_room = player1.current_room.w_to
-            print(f"{player1.name} is in {player1.current_room}")
+            print(f"{player1.name} is in {player1.current_room} These items are available in this room:{player1.current_room.items}")
         else:
             print("You cannot go there")
     else:
