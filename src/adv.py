@@ -89,13 +89,16 @@ while playerKey != exitButton:
     if playerKey == "n":
         if player1.current_room.n_to:
             player1.current_room = player1.current_room.n_to
+
+            print(
+                f"{player1.name} is in {player1.current_room.name}.\t {player1.current_room.description}   \n This room contains these items:\n  ")
+            print(f"{player1.current_room.items}")
             player_action = input("What would you like to do?: ")
             for index, item in enumerate(player1.current_room.items, start=0):
                 if item == player_action:
                     player1.current_room.items.pop(index)
-            print(
-                f"{player1.name} is in {player1.current_room.name}.\t {player1.current_room.description}   \n This room contains these items:\n  ")
-            print(f"{player1.current_room.items}")
+                    player1.backpack.append(item)
+            print(player1.current_room.items)
             print("You have these items in your backpack 👜 : \n")
             for item in player1.backpack:
                 print(f"➡{item}")
